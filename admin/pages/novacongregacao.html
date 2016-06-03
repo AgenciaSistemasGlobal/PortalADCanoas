@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Vamos criar as Congregações</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Cadastre e teste online
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form name="form_group">
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Distrito</label>
+                                    <select class="form-control" ng-model="congregacao.distrito" ng-options="distrito.id as distrito.distrito for distrito in distritos">
+                                        <option value="">Selecione um distrito cadastrado anteriormente</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Nome</label>
+                                    <input type="text" class="form-control" ng-required="true" ng-model="congregacao.nome" placeholder="Máximo 50 carctéries" maxlength="50">
+                                </div>
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Endereço</label>
+                                    <input ng-required="true" ng-model="congregacao.endereco" class="form-control" placeholder="Não hà limite de caractéries">
+                                </div>
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Encarregado</label>
+                                    <input ng-required="true" ng-model="congregacao.encarregado" class="form-control" placeholder="Não hà limite de caractéries">
+                                </div>
+                                <br />
+                                <p><span class="text-required">*</span> Campos obrigatórios</p>
+                                <br />
+                                <button ng-click="adicionarCongregacao(congregacao)" class="btn btn-primary" ng-disabled="form_group.$invalid">Cadastrar Congregacao</button>
+                            	<a href="./#/congregacoes" class="btn btn-default">Cancelar e/ou Voltar</a>
+                            </form>
+                            <br />
+                            <div class="alert alert-danger fade-in" ng-if="response_upload_error">
+                            	<a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                Algo deu errado <strong>:(</strong> Tente novamente, se o erro persistir, ligue para o suporte.
+                            </div>
+                        </div>
+                        <!-- /.col-lg-12 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

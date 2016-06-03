@@ -1,0 +1,56 @@
+<!-- Page Content -->
+<div class="container topo_bastante_conteudo content-padding">
+    <div class="col-md-12" ng-if="fetch">
+        <div class="col-md-3">
+            <img ng-src="{{mais_one.img}}" alt="{{mais_one.texto_grande}}" title="{{mais_one.texto_grande}}" class="img-responsive">
+        </div>
+        <div class="col-md-9">
+            <h2 class="text-left">
+                <div class="detalhe-azul"></div>
+                {{mais_one.texto_grande}}
+                {{mais_one.titulo}}
+            </h2>
+            <h3 style="margin-top: 0">
+                {{mais_one.texto_medio}}
+                {{mais_one.sub_titulo}}
+            </h3>
+            <p>
+                {{mais_one.texto_pequeno}}
+                {{mais_one.texto}}
+            </p>
+            <a href="javascript:void(0)" class="btn btn-primary" ng-click="doTheBack()">Voltar</a>
+        </div>
+    </div>
+    <div class="col-md-12" ng-if="fetchAll">
+        <div ng-repeat="content in mais_all">
+            <div class="clearfix" ng-if="$index % 1 == 0"></div>
+            <div class="col-md-12" style="margin-bottom: 20px;">
+                <div class="col-md-3">
+                    <img ng-src="{{content.img}}" ng-if="content.img" alt="{{content.texto_grande}}" title="{{content.texto_grande}}" class="img-responsive">
+                    <div class="col-md-12" ng-if="content.dia">
+                        <div class=" col-md-12 engloba_data_azul two">
+                            <div class="row data_dia">{{content.dia}}</div>
+                            <div class="row data_mes">{{content.mes}} de {{content.ano}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" ng-if="content.url">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item videos" ng-src="{{getIframeSrc(content.url)}}"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h2 class="text-left">
+                        <div class="detalhe-azul"></div>
+                        {{content.titulo}}
+                        {{content.texto_grande}}
+                    </h2>
+                    <h3 style="margin-top: 0">{{content.sub_titulo}}</h3>
+                    <p>{{content.texto}}{{content.texto_medio}}</p>
+                    <a href="javascript:void(0)" class="btn btn-primary" ng-click="doTheBack()">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->

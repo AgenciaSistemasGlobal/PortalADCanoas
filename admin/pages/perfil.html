@@ -1,0 +1,22 @@
+<div class="row fade-in">
+    <div class="col-md-4 col-md-offset-4 text-center">
+        <br />
+        <div class="circle-perfil">{{dados.first}}</div>
+        <br />
+        <form name="perfilForm">
+            <div class="form-group">
+                <input type="text" ng-required="true" class="form-control" ng-model="dados.nome"></input>
+            </div>
+            <div class="form-group">
+                <input type="email" ng-required="true" class="form-control" ng-model="dados.email"></input>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Nova senha" ng-model="dados.senha"></input>
+                <input type="hidden" ng-model="dados.id"></input>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-success btn-block" ng-disabled="perfilForm.$invalid" ng-click="editPerfil(dados)">Alterar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Galeria de Vídeos</h1>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Galeria de Vídeos está no lado direito, nas 3 colunas: Notícias, Projetos, Galeria de Vídeos.
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="well">
+                        <h4>Novo video?</h4>
+                        <p>Indicamos que tenha 5 vídeos.</p>
+                        <a class="btn btn-primary btn-lg btn-block" href="./#/videos/novoVideo">Adicionar Novo Vídeo</a>
+                    </div>
+                    <div class="dataTable_wrapper table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Vídeo</th>
+                                    <th class="text-center">Título</th>
+                                    <th class="text-center">Texto</th>
+                                    <th class="text-center">Editar</th>
+                                    <th class="text-center">Excluir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="gradeC" ng-repeat="video in videos">
+                                    <td class="text-center">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(video.url)}}"></iframe>
+                                        </div>
+                                    </td>
+                                    <td>{{video.texto_grande}}</td>
+                                    <td>{{video.texto_medio}}</td>
+                                    <td class="text-center mouse-hover" ng-click="editarVideo(video.id)"><i class="fa fa-pencil-square-o"></i></td>
+                                    <td class="text-center mouse-hover" ng-click="deletarVideo(video.id)"><i class="fa fa-trash-o"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

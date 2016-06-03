@@ -1,0 +1,28 @@
+<div class="row fade-in">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="login-panel panel panel-default">
+            <div class="panel-heading" ng-if="!email_existed">
+                <h3 class="panel-title">Ótimo! Mias um administrador :)</h3>
+            </div>
+            <div class="panel-heading login-error fade-in" ng-if="email_existed">
+                <h3 class="panel-title">Este e-mail já existe!</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" autocomplete="off" name="maisUser">
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" ng-model="signUpInfo.nome" placeholder="Informe o nome do administrador" name="nome_cadastro" ng-required="true" type="text" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" ng-model="signUpInfo.email_cadastro" placeholder="Informe o e-mail. Ele receberá a senha" ng-required="true" name="email_cadastro" type="email">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" ng-model="signUpInfo.senha_cadastro" placeholder="Escolha a senha. Depois ele trocará" ng-required="true" name="senha_cadastro" type="text" value="">
+                        </div>
+                        <button class="btn btn-lg btn-success btn-block" ng-click="signUserUp()" ng-disabled="maisUser.$invalid">Cadastrar e Enviar por Email</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

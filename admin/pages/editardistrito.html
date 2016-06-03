@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Editando este distrito</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Para <strong>não</strong> editar, basta deixar como está
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form name="form_group">
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Novo Nome</label>
+                                    <input type="text" class="form-control" ng-required="true" ng-model="distrito.nome" placeholder="Máximo 50 carctéries" maxlength="50">
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label><span class="text-required">*</span> Nova Foto do Distrito</label>
+                                            <input type="file" file-model="distrito.foto_distrito" accept="image/*">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="col-md-12">
+                                                <label>Imagem atual</label>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <img ng-src="../../{{distrito.foto_distrito}}" class="img-thumbnail" width="150">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Novo Nome do Pastor</label>
+                                    <input ng-required="true" ng-model="distrito.pastor" class="form-control" placeholder="Não hà limite de caractéries">
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label><span class="text-required">*</span> Nova Foto do Pastor</label>
+                                            <input type="file" file-model="distrito.foto_pastor" accept="image/*">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="col-md-12">
+                                                <label>Imagem atual</label>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <img ng-src="../../{{distrito.foto_pastor}}" class="img-thumbnail" width="90">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Novo Fone</label>
+                                    <input ng-required="true" ng-model="distrito.fone" class="form-control" placeholder="Não hà limite de caractéries">
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Nova Igreja Sede</label>
+                                    <input ng-required="true" ng-model="distrito.igreja_sede" class="form-control" placeholder="Não hà limite de caractéries">
+                                </div>
+                                <br />
+                                <p><span class="text-required">*</span> Campos obrigatórios</p>
+                                <br />
+                                <button ng-click="editarDistrito(distrito)" class="btn btn-primary" ng-disabled="form_group.$invalid">Cadastrar Distrito</button>
+                                <a href="./#/distritos" class="btn btn-default">Cancelar e/ou Voltar</a>
+                            </form>
+                            <br />
+                            <div class="alert alert-danger fade-in" ng-if="response_upload_error">
+                                <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                Algo deu errado <strong>:(</strong> Tente novamente, se o erro persistir, ligue para o suporte.
+                            </div>
+                        </div>
+                        <!-- /.col-lg-12 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

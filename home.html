@@ -1,0 +1,262 @@
+<!-- Header Carousel -->
+<header id="myCarousel" class="carousel slide fade-in">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active:!$index}" ng-repeat="slide in slides"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item" ng-class="{active:!$index}" ng-repeat="slide in slides">
+            <div class="fill" style="background-image:linear-gradient(
+                rgba(0,0,0, .3),
+                rgba(0,0,0, .3)
+                ),
+            url({{slide.img}});"></div>
+            <div class="carousel-caption">
+                <h1>{{slide.texto_grande}}</h1>
+                <h2>{{slide.texto_medio}}</h2>
+                <h3>{{slide.texto_pequeno}}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="javascript:void(0)" ng-click="CarouselPrev()" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="javascript:void(0)" ng-click="CarouselNext()" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+</header>
+<!-- Destaques -->
+<div class="row">
+    <div class="col-md-12" style="padding: 20px">
+        <div class="col-md-1">
+            <img src="img/peixe_vetor.png" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-11">
+            <h1 class="tit-destaques">Destaques</h1>
+        </div>
+    </div>
+    <div class="col-md-12 col-xs-12 content_destaque">
+        <div class="col-md-4 col-xs-4 fade-in {{'a' + $index}}" ng-repeat="destaque in destaques">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <img ng-src="{{destaque.img}}" alt="{{destaque.texto_grande}}" width="100" class="img-responsive"/>
+                </div>
+                <div class="col-md-8 no-padding-left engloba-npgs" data-line="b">
+                    <h2>{{destaque.texto_grande | ellipsis:30}}</h2>
+                    <p>{{destaque.texto_medio  | ellipsis:350}}</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-12 border-divisoria com-detalhe">
+                </div>
+                <div class="col-md-12 footer_destaques" ng-click="go('mais/destaques/' + destaque.id)">
+                    mais
+                    <label class="plus_mais cinza">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row table-container">
+    <div class="col-md-12 coluna-esquerda">
+        
+        <!-- Noticias Projetos Galeria (npg) Section -->
+        <div class="row npg">
+            <div class="col-md-4 col-xs-4 npgs">
+                <h2>
+                    <i class="fa fa-file-text-o"></i>
+                    Notícias
+                </h2>
+                <div class="col-md-12 topo-npg"></div>
+                <div class="col-md-12 engloba-npgs" data-line="a">
+                    <div class="col-md-12 txts_nopgs" ng-repeat="noticia in noticias" style="margin-bottom: 10px;">
+                        <div class="col-md-4">
+                            <img ng-src="{{noticia.img}}" alt="{{noticia.titulo}}" class="img-responsive">
+                        </div>
+                        <div class="col-md-8 engloba_txts">
+                            <h2>{{noticia.titulo | ellipsis:30}}</h2>
+                            <p>{{noticia.texto | ellipsis:70}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 border-divisoria cinza">
+                </div>
+                <div class="col-md-12 footer_destaques cinza_color" ng-click="go('mais/noticias/all')">
+                    mais
+                    <label class="plus_mais cinza">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-xs-4 npgs">
+                <h2>
+                    <i class="fa fa-folder-open-o"></i>
+                    Projetos
+                </h2>
+                <div class="col-md-12 topo-npg"></div>
+                <div class="col-md-12 engloba-npgs" data-line="a">
+                    <div class="col-md-12 txts_nopgs" ng-repeat="projeto in projetos" style="margin-bottom: 10px;">
+                        <div class="col-md-4">
+                            <img ng-src="{{projeto.img}}" alt="{{projeto.texto_grande}}" class="img-responsive">
+                        </div>
+                        <div class="col-md-8 engloba_txts">
+                            <h2>{{projeto.texto_grande | ellipsis:30}}</h2>
+                            <p>{{projeto.texto_medio | ellipsis:70}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 border-divisoria cinza">
+                </div>
+                <div class="col-md-12 footer_destaques cinza_color" ng-click="go('mais/projetos/all')">
+                    mais
+                    <label class="plus_mais cinza">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xs-4 npgs">
+                <h2>
+                    <i class="fa fa-video-camera"></i>
+                    Galeria de Vídeos
+                </h2>
+                <div class="col-md-12 topo-npg"></div>
+                <div class="col-md-12 engloba-npgs" data-line="a">
+                    <div class="col-md-12 galeria-videos">
+                        <div class="embed-responsive embed-responsive-16by9" ng-repeat="video in videos" ng-if="$index == 0">
+                            <iframe class="embed-responsive-item videos" ng-src="{{getIframeSrc(video.url)}}"></iframe>
+                        </div>
+                        <div class="col-md-6 embed-responsive embed-responsive-16by9" ng-repeat="video in videos" ng-if="$index != 0">
+                            <iframe class="embed-responsive-item videos" ng-src="{{getIframeSrc(video.url)}}"></iframe>
+                        </div>
+                    </div>
+                    <p class="text-center">Separamos mais vídeos para você, não deixe de vê-los cliacando abaixo!</p>
+                </div>
+                <div class="col-md-12 border-divisoria cinza">
+                </div>
+                <div class="col-md-12 footer_destaques cinza_color" ng-click="go('mais/videos/all')">
+                    mais
+                    <label class="plus_mais cinza">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agenda Eventos Leia (ael) Section -->
+        <div class="row npg">
+            <div class="col-md-4 col-xs-4 npgs">
+                <h2>
+                    <i class="fa fa-globe"></i>
+                    Eventos
+                </h2>
+                <div class="col-md-12 topo-npg"></div>
+                <div class="col-md-12 scroll engloba-npgs" data-line="d">
+                    <div class="col-md-12 txts_nopgs no-dashed" ng-repeat="evento in eventos" style="margin-bottom: 10px;">
+                        <div class="col-md-3 engloba_data_azul two">
+                            <div class="row data_dia">{{evento.dia}}</div>
+                            <div class="row data_mes">{{evento.mes}}</div>
+                        </div>
+                        <div class="col-md-9 engloba_txts">
+                            <h2>{{evento.texto_grande | ellipsis:20}}</h2>
+                            <p>{{evento.texto_medio | ellipsis:65}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 border-divisoria cinza">
+                </div>
+                <div class="col-md-12 footer_destaques cinza_color" ng-click="go('mais/eventos/all')">
+                    mais
+                    <label class="plus_mais cinza">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4 npgs">
+                <h2>
+                    <i class="fa fa-calendar"></i>
+                    Agenda Ministerial
+                </h2>
+                <div class="col-md-12 topo-npg"></div>
+                <div class="col-md-12 scroll engloba-npgs" data-line="d">
+                    <div class="col-md-12 txts_nopgs no-dashed" ng-repeat="agenda in agendas" style="margin-bottom: 10px;">
+                        <div class="col-md-3 engloba_data_azul two">
+                            <div class="row data_dia">{{agenda.dia}}</div>
+                            <div class="row data_mes">{{agenda.mes}}</div>
+                        </div>
+                        <div class="col-md-9 engloba_txts">
+                            <h2>{{agenda.texto_grande | ellipsis:20}}</h2>
+                            <p>{{agenda.texto_medio | ellipsis:65}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 border-divisoria cinza">
+                </div>
+                <div class="col-md-12 footer_destaques cinza_color" ng-click="go('mais/agenda-ministerial/all')">
+                    mais
+                    <label class="plus_mais cinza">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <h2>
+                    <i class="fa fa-newspaper-o"></i>
+                    Leia o Jornal Koinonia
+                </h2>
+                <div class="col-md-12 topo-npg"></div>
+                <div class="col-md-12 text-center engloba-npgs" ng-repeat="jornal in jornais" data-line="d">
+                    <img ng-src="{{jornal.img}}" alt="{{jornal.texto_grande}}" class="img-thumbnail img-jornal" ng-click="go('Jornal-Koinonia')">
+                    <div class="footer_jornal">{{jornal.texto_grande}}</div>
+                </div>
+                <div class="col-md-12 border-divisoria cinza">
+                </div>
+                <div class="col-md-12 footer_destaques cinza_color" ng-click="go('Jornal-Koinonia')">
+                    mais
+                    <label class="plus_mais cinza">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Artigos Section -->
+        <article class="row npg">
+            <h2>
+                <i class="fa fa-comments"></i>
+                Artigos
+            </h2>
+            <div class="col-md-12 topo-npg topo-npg-left"></div>
+            <div class="col-md-4 col-xs-4 cada-artigo" ng-repeat="artigo in artigos">
+                <div class="col-md-12">
+                    <div class="col-md-12 engloba-npgs" data-line="c">
+                        <div class="col-md-4">
+                            <img ng-src="{{artigo.img}}" alt="{{artigo.texto_grande}}" width="100%"/>  
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row tit">
+                                {{artigo.texto_grande}}
+                            </div>
+                            <div class="row sub-tit">{{artigo.texto_medio}}</div>
+                            <div class="row text-article">{{artigo.texto_pequeno}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 border-divisoria cinza">
+                    </div>
+                    <div class="col-md-12 footer_destaques cinza_color" ng-click="go('mais/artigos/' + artigo.id)">
+                        mais
+                        <label class="plus_mais cinza">
+                            <i class="fa fa-plus"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

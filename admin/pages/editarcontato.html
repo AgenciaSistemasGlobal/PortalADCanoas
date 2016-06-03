@@ -1,0 +1,162 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Editando Sobre</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Para <strong>não</strong> editar, basta deixar como está
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="alert alert-danger fade-in" ng-if="response_upload_error">
+                            	<a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            	Algo deu errado <strong>:(</strong> Tente novamente, se o erro persistir, ligue para o suporte.
+                            </div>
+                            <form name="form_group">
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Novo e-mail</label>
+                                    <input type="text" ng-required="true" ng-model="contato.email" class="form-control" placeholder="Não hà limite de caractéries">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label><span class="text-required">*</span> Novo telefone</label>
+                                            <input type="text" ng-required="true" ng-model="contato.telefone" class="form-control" placeholder="Não hà limite de caractéries">  
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label><span class="text-required">*</span> Novo celular</label>
+                                            <input type="text" ng-required="true" ng-model="contato.celular" class="form-control" placeholder="Não hà limite de caractéries">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label> Link das Redes Sociais</label>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-facebook-official"></i></span>
+                                                <input ng-model="contato.facebook" class="form-control" placeholder="Facebook">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-twitter-square"></i></span>
+                                                <input ng-model="contato.twitter" class="form-control" placeholder="Twitter">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-instagram"></i></span>
+                                                <input ng-model="contato.instagram" class="form-control" placeholder="Instagram">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-youtube"></i></span>
+                                                <input ng-model="contato.youtube" class="form-control" placeholder="Youtube">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Novo Link da Rádio Online</label>
+                                    <input type="text" ng-required="true" ng-model="contato.radio" class="form-control" placeholder="Não hà limite de caractéries">
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <label><span class="text-required">*</span> Novo endereço</label>
+                                            <input type="text" ng-required="true" ng-model="contato.endereco" class="form-control" placeholder="Não hà limite de caractéries">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label><span class="text-required">*</span> Novo número</label>
+                                            <input type="text" ng-required="true" ng-model="contato.numero" class="form-control" placeholder="N°">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <label><span class="text-required">*</span> Novo bairro</label>
+                                            <input type="text" ng-required="true" ng-model="contato.bairro" class="form-control" placeholder="Não hà limite de caractéries">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label><span class="text-required">*</span> Novo cep</label>
+                                            <input type="text" ng-required="true" ng-model="contato.cep" class="form-control" placeholder="99999-999">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <label><span class="text-required">*</span> Nova cidade</label>
+                                            <input type="text" ng-required="true" ng-model="contato.cidade" class="form-control" placeholder="Não hà limite de caractéries">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label><span class="text-required">*</span> Novo estado</label>
+                                            <select class="form-control" ng-model="contato.estado">
+                                                <option value="AC" ng-selected="{{contato.estado == 'AC'}}">AC</option>
+                                                <option value="AL" ng-selected="{{contato.estado == 'AL'}}">AL</option>
+                                                <option value="AP" ng-selected="{{contato.estado == 'AP'}}">AP</option>
+                                                <option value="AM" ng-selected="{{contato.estado == 'AM'}}">AM</option>
+                                                <option value="BA" ng-selected="{{contato.estado == 'BA'}}">BA</option>
+                                                <option value="CE" ng-selected="{{contato.estado == 'CE'}}">CE</option>
+                                                <option value="DF" ng-selected="{{contato.estado == 'DF'}}">DF</option>
+                                                <option value="ES" ng-selected="{{contato.estado == 'ES'}}">ES</option>
+                                                <option value="GO" ng-selected="{{contato.estado == 'GO'}}">GO</option>
+                                                <option value="MA" ng-selected="{{contato.estado == 'MA'}}">MA</option>
+                                                <option value="MT" ng-selected="{{contato.estado == 'MT'}}">MT</option>
+                                                <option value="MS" ng-selected="{{contato.estado == 'MS'}}">MS</option>
+                                                <option value="MG" ng-selected="{{contato.estado == 'MG'}}">MG</option>
+                                                <option value="PR" ng-selected="{{contato.estado == 'PR'}}">PR</option>
+                                                <option value="PB" ng-selected="{{contato.estado == 'PB'}}">PB</option>
+                                                <option value="PA" ng-selected="{{contato.estado == 'PA'}}">PA</option>
+                                                <option value="PE" ng-selected="{{contato.estado == 'PE'}}">PE</option>
+                                                <option value="PI" ng-selected="{{contato.estado == 'PI'}}">PI</option>
+                                                <option value="RJ" ng-selected="{{contato.estado == 'RJ'}}">RJ</option>
+                                                <option value="RN" ng-selected="{{contato.estado == 'RN'}}">RN</option>
+                                                <option value="RS" ng-selected="{{contato.estado == 'RS'}}">RS</option>
+                                                <option value="RO" ng-selected="{{contato.estado == 'RO'}}">RO</option>
+                                                <option value="RR" ng-selected="{{contato.estado == 'RR'}}">RR</option>
+                                                <option value="SC" ng-selected="{{contato.estado == 'SC'}}">SC</option>
+                                                <option value="SE" ng-selected="{{contato.estado == 'SE'}}">SE</option>
+                                                <option value="SP" ng-selected="{{contato.estado == 'SP'}}">SP</option>
+                                                <option value="TO" ng-selected="{{contato.estado == 'TO'}}">TO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <p><span class="text-required">*</span> Campos obrigatórios</p>
+                                <br />
+                                <button ng-click="editarContato(contato)" class="btn btn-primary" ng-disabled="form_group.$invalid">Editar Localização / Contato</button>
+                            	<a href="./#/localizacao-contato" class="btn btn-default">Cancelar e/ou Voltar</a>
+                            </form>
+                            <br />
+                        </div>
+                        <!-- /.col-lg-12 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

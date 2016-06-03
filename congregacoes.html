@@ -1,0 +1,105 @@
+<!-- Page Content -->
+<div class="container topo_bastante_conteudo content-padding">
+    
+    <div class="col-md-10 col-md-offset-1 text-center">
+        <div class="col-md-offset-6 col-md-6" style="padding-right: 0;margin-bottom: 20px;">
+            <div class="input-group"> 
+                <input type="text" ng-show="buscas == 'two'" ng-model="buscaDistrito" style="height: 50px;" class="form-control" aria-label="Text input with segmented button dropdown" placeholder="Na seta para baixo, escolha buscar por nome de distrito ou congregação e basta digitar">
+                <input type="text" ng-show="buscas == 'distrito'" ng-model="buscaDistrito" style="height: 50px;" class="form-control" aria-label="Text input with segmented button dropdown" placeholder="Buscando por distrito">
+
+                <input type="text" ng-show="buscas == 'congregacao'" ng-model="buscaCongregacao" style="height: 50px;" class="form-control" aria-label="Text input with segmented button dropdown" placeholder="Buscando por congregação">
+                <div class="input-group-btn"> 
+                    <button type="button" style="height: 50px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                        <span class="caret"></span> 
+                        <span class="sr-only">Toggle Dropdown</span> 
+                    </button> 
+                    <ul class="dropdown-menu dropdown-menu-right"> 
+                        <li ng-click="alterSearch('distrito')">
+                            <a href="javascript:void(0)">Buscar por nome distrito</a>
+                        </li>
+                        <li role="separator" class="divider"></li> 
+                        <li ng-click="alterSearch('congregacao')">
+                            <a href="javascript:void(0)">Buscar por nome congregação</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cada distrito -->
+    <div class="col-md-12 col-xs-12 fade-in" dir-paginate="distrito in distritos | filter:{distrito: buscaDistrito} | itemsPerPage: 1">
+        <div class="col-md-10 col-xs-12 col-centered districts col-md-offset-1">
+            <div class="col-md-12 col-xs-12">
+                <div class="col-md-12" style="margin-bottom: 20px;">
+                    <h2 class="text-left">
+                        <div class="detalhe-azul"></div>
+                        {{distrito.distrito}}
+                    </h2>
+                </div>
+                <div class="col-md-4">
+                    <img ng-src="{{distrito.foto_distrito}}" class="img-thumbnail" alt="{{distrito.distrito}}">
+                </div>
+                <div class="col-md-8" style="padding-left: 0;">
+                    <div class="col-md-3 col-xs-3">
+                        <div class="thumbnail">
+                            <img class="img-responsive" ng-src="{{distrito.foto_pastor}}" alt="{{distrito.pastor}}">
+                            <div class="caption">
+                                <h3 style="margin-top: 0;margin-bottom: 10px;">Pastor<br>
+                                    <small>{{distrito.pastor}}</small>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 col-xs-3">
+                        <div class="row">
+                            <h3><span class="titles-districts">Fone</span></h3>
+                        </div>
+                        <div class="row">
+                            <h4>{{distrito.fone}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="row">
+                            <h3><span class="titles-districts">Igreja sede <span class="parenteses">(foto em destaque)</span></span></h3>
+                        </div>
+                        <div class="row">
+                            <h4>{{distrito.igreja_sede}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12">
+                <div class="col-md-12" style="margin-bottom: 20px;margin-top: 20px;">
+                    <h2 class="text-left">
+                        <div class="detalhe-azul"></div>
+                        Congregações
+                    </h2>
+                </div>
+                <div class="col-md-12">
+                    <div ng-repeat="congregacao in congregacoes | filter : {distrito: congregacao.distrito} | filter:{nome: buscaCongregacao}" ng-if="distrito.id == congregacao.distrito">
+                        <div class="col-md-4" style="">
+                            <div class="congrets">
+                                <p>
+                                    <span class="titles-districts">{{congregacao.nome}}</span>
+                                </p>
+                                <p class="sub-titles-district">
+                                    {{congregacao.endereco}}
+                                </p>
+                                <p>
+                                    <strong>Encarregado:</strong> {{congregacao.encarregado}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.Cada distrito -->
+    <div class="col-md-12 text-center">
+        <dir-pagination-controls></dir-pagination-controls>
+    </div>
+</div>
+<!-- /.container -->

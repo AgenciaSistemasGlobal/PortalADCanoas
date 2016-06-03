@@ -1,0 +1,41 @@
+<!-- Page Content -->
+<div class="container topo_bastante_conteudo content-padding">
+    
+    <!-- Projects Row -->
+    <div class="row fade-in one">
+        <div dir-paginate="agenda in agendas | itemsPerPage: 6">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <div class="col-md-4 img-portfolio">
+                <div class="text-right data-agenda">
+                    {{agenda.data}}
+                </div>
+                <div class="img-agenda">
+                    <img ng-src="{{agenda.img}}" alt="" class="img-responsive">
+                </div>
+                <h2 class="text-left">
+                    <div class="detalhe-azul"></div>
+                    {{agenda.titulo | ellipsis:30}}
+                </h2>
+                <p>{{agenda.texto | ellipsis:150}}</p>
+                <div class="col-md-12 border-divisoria cinza">
+                </div>
+                <div class="col-md-12 footer_destaques cinza_color" ng-click="go('mais/agendas/' + agenda.id)">
+                    mais
+                    <label class="plus_mais cinza">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Pagination -->
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <dir-pagination-controls></dir-pagination-controls>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->

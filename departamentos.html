@@ -1,0 +1,70 @@
+<!-- Page Content -->
+<div class="container topo_bastante_conteudo content-padding">
+
+    <div class="col-md-10 col-md-offset-1 text-center">
+        <div class="col-md-offset-6 col-md-6" style="padding-right: 0;margin-bottom: 20px;">
+            <input type="text" class="form-control" ng-model="buscaDepto" placeholder="Para buscar por nome de departamento, basta digitar" style="height: 50px;">
+        </div>
+    </div>
+
+    <!-- Cada departamento -->
+    <div class="col-md-12 fade-in" dir-paginate="departamento in departamentos | filter:{nome: buscaDepto}  | itemsPerPage: 1">
+        <div class="col-md-10 col-md-offset-1 districts">
+            <!-- Intro Content -->
+            <div class="row fade-in">
+                <div class="col-md-5">
+                    <!-- <img class="img-responsive thumbnail" ng-src="{{departamento.foto_lider}}" alt="{{departamento.nome}}"> -->
+                    <div id="myCarousel{{departamento.id}}" class="carousel slide" data-ride="carousel" style="height: 100%;overflow: hidden;">
+                      <!-- Indicators -->
+                      <ol class="carousel-indicators" style="bottom: 10px;">
+                        <li data-target="#myCarousel{{departamento.id}}" data-slide-to="{{$index}}" ng-class="{active:!$index}" ng-repeat="galeria in galerias | filter : {id_departamento: departamento.id}"></li>
+                      </ol>
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner" role="listbox">
+                        <div class="item" ng-class="{'active': $index == 0}" ng-repeat="galeria in galerias | filter : {id_departamento: departamento.id}">
+                          <img ng-src="{{galeria.img}}" alt="">
+                        </div>
+                      </div>
+
+                      <!-- Left and right controls -->
+                      <a class="left carousel-control" href="javascript:void(0)" ng-click="CarouselPrev(departamento.id)" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="right carousel-control" href="javascript:void(0)" ng-click="CarouselNext(departamento.id)" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="col-md-9">
+                        <h2 class="text-left">
+                            <div class="detalhe-azul"></div>
+                            {{departamento.nome}}
+                        </h2>
+                        <br />
+                        <p>{{departamento.sobre}}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail col-md-12">
+                            <img class="img-responsive" ng-src="{{departamento.foto_lider}}" alt="">
+                            <div class="caption">
+                                <h3>Lider(es)<br>
+                                    <small>{{departamento.nome_lider}}</small>
+                                </h3>
+                                <div class="col-md-4"><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a></div>
+                                <div class="col-md-4"><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- /.row -->
+    </div>
+    <div class="col-md-12 text-center">
+        <dir-pagination-controls></dir-pagination-controls>
+    </div>
+</div>
+<!-- /.Cada departamento -->

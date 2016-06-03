@@ -1,0 +1,83 @@
+<!-- Page Content -->
+<div class="container content-padding topo_bastante_conteudo">
+    <!-- Intro Content -->
+    <div class="row fade-in one" ng-repeat="sobre in sobres">
+        <div class="col-md-6">
+            <img class="img-responsive" ng-src="{{sobre.img}}" alt="">
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-left">
+                <div class="detalhe-azul"></div>
+                {{sobre.texto_grande}}
+            </h2>
+            <br />
+            <p>{{sobre.texto_medio}}</p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Team Members -->
+    <div class="row fade-in two">
+        <div class="col-lg-12">
+            <h2 class="text-left">
+                <div class="detalhe-azul"></div>
+                Pessoas que fazem parte
+            </h2>
+            <br />
+        </div>
+        <div ng-repeat="integrante in integrantes">
+            <div class="clearfix" ng-if="$index % 4 == 0"></div>
+            <div class="col-md-3 text-center">
+                <div class="thumbnail">
+                    <img class="img-responsive" ng-src="{{integrante.img}}" alt="{{integrante.nome}}">
+                    <div class="caption">
+                        <h3>{{integrante.nome}}<br>
+                            <small>{{integrante.cargo}}</small>
+                        </h3>
+                        <p>{{integrante.descricao}}</p>
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Our Customers -->
+    <div class="row fade-in three">
+        <div class="col-lg-12" style="padding-bottom: 20px;">
+            <h2 class="text-left">
+                <div class="detalhe-azul"></div>
+                Algumas imagens
+            </h2>
+        </div>
+        <div ng-repeat="imagem in imagens">
+            <div class="clearfix" ng-if="$index % 6 == 0"></div>
+            <div class="col-md-2 col-xs-2 scale" data-toggle="modal" data-target="#myModal{{$index}}">
+                <img class="img-responsive customer-img thumbnail" ng-src="{{imagem.img}}" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+<!-- Modal -->
+<div ng-repeat="imagem in imagens" id="myModal{{$index}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <img ng-src="{{imagem.img}}" alt="" class="img-responsive">
+      </div>
+    </div>
+
+  </div>
+</div>

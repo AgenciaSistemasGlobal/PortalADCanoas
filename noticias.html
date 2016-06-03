@@ -1,0 +1,45 @@
+<!-- Page Content -->
+<div class="container topo_bastante_conteudo content-padding">
+    
+    <div class="col-md-12">
+        
+        <div class="col-md-12" dir-paginate="noticia in noticias | itemsPerPage: 3">
+            <!-- Project One -->
+            <div class="row fade-in one">
+                <div class="col-md-7 col-xs-12">
+                    <div class="text-right data-agenda">
+                        <a href="javascript:void(0)" ng-click="go('mais/noticias/' + noticia.id)">Clique e saiba mais <i class="fa fa-angle-right"></i></a>
+                    </div>
+                    <div class="img-agenda noticias">
+                        <img ng-src="{{noticia.img}}" alt="" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-12 text-left">
+                    <h2>
+                        <div class="detalhe-azul"></div>
+                        {{noticia.titulo | ellipsis:40}}
+                    </h2>
+                    <h3>{{noticia.data}}</h3>
+                    <h4>{{noticia.sub_titulo | ellipsis:40}}</h4>
+                    <p>{{noticia.texto | ellipsis:200}}</p>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <hr style="border-top: 1px solid transparent;">
+        </div>
+
+        <hr style="border-top: 1px solid transparent;">
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <dir-pagination-controls></dir-pagination-controls>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr style="border-top: 1px solid transparent;">
+    </div>
+</div>
+<!-- /.container -->

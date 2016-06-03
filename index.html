@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SiteADCanoas">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>AD Canoas</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="icon" href="img/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Murilo -->
+    <script src="js/js-local.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>$('.carousel').carousel({ interval: 5000 });</script>
+
+    <!-- AngularJS -->
+    <script src="admin/js/AngularJS/angular.min.js"></script>
+    
+    <!-- Angular Route -->
+    <script src="admin/js/AngularJS/angular-route.min.js"></script>
+
+    <!-- Module -->
+    <script src="js/app.js"></script>
+
+    <!-- Services -->
+    <script src="admin/js/services/crudesAPIService.js"></script>
+
+    <!-- Configs -->
+    <script src="js/value/configUrlsValue.js"></script>
+
+    <!-- ngRoute -->
+    <script src="js/configs/routeConfig.js"></script>
+
+    <!-- Angular Paginação -->
+    <script src="js/dirPagination.js"></script>
+
+    <!-- Ellipsis -->
+    <script src="js/filters/ellipsisFilter.js"></script>
+
+    <!-- /////////// -->
+    <!-- Controllers -->
+    <!-- /////////// -->
+
+    <!-- Index -->
+    <script src="js/controllers/mainCtrl.js"></script>
+
+    <!-- Home -->
+    <script src="js/controllers/homeCtrl.js"></script>
+
+    <!-- Sobre -->
+    <script src="js/controllers/sobreCtrl.js"></script>
+
+    <!-- Congregações -->
+    <script src="js/controllers/congregacoesCtrl.js"></script>
+
+    <!-- Departamentos -->
+    <script src="js/controllers/departamentosCtrl.js"></script>
+
+    <!-- Agenda -->
+    <script src="js/controllers/agendaCtrl.js"></script>
+
+    <!-- Noticias -->
+    <script src="js/controllers/noticiasCtrl.js"></script>
+
+    <!-- Contato -->
+    <script src="js/controllers/contatoCtrl.js"></script>
+
+    <!-- Mais -->
+    <script src="js/controllers/maisCtrl.js"></script>
+</head>
+
+    <body ng-controller="mainCtrl">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar_de_cima navbar-inverse navbar-fixed-top topo-inutil" role="navigation">
+            <div class="container">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="javascript:void(0)" ng-class="{active_menus_contato: activetab == '/Contato'}" ng-click="go('/Contato')" class="color_de_cima">Localização / Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.container -->
+        </nav>
+        <nav class="navbar navbar-inverse navbar-fixed-top topo_bastante_conteudo" role="navigation">
+          <div class="col-md-6"><img src="img/logotipo.png" alt="Logotipo" class="logotipo fade-in one"></div>
+          <div class="col-md-6">
+                <div class="row socialsals">
+                    <ul class="ul_baseline socials">
+                      <li class="socials_icon"><i class="fa fa-facebook-square"></i></li>
+                      <li class="socials_icon"><i class="fa fa-twitter-square"></i></li>
+                      <li class="socials_icon"><i class="fa fa-instagram"></i></li>
+                      <li class="socials_icon"><i class="fa fa-youtube"></i></li>
+                      <li><div class="radio"><div class="left_radio"><i class="fa fa-microphone"></i> <span class="escnd_radio">Rádio Online</span></div><div class="right_radio"><i class="fa fa-play-circle-o"></i></div></div></li>
+                      <li class="socials_icon">
+                          <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Menu</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+                <div class="row text-center">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="row dmnio">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav menu">
+                                <li class="menus_1" ng-class="{active_menus: activetab == '/'}" ng-click="go('/')"><a href="javascript:void(0)">Início</a></li>
+                                <li class="menus_2"  ng-class="{active_menus: activetab == '/Igreja'}" ng-click="go('/Igreja')"><a href="javascript:void(0)">Igreja</a></li>
+                                <li class="menus_3"  ng-class="{active_menus: activetab == '/Departamentos'}" ng-click="go('/Departamentos')"><a href="javascript:void(0)">Departamentos</a></li>
+                                <li class="menus_4"  ng-class="{active_menus: activetab == '/Congregacoes'}" ng-click="go('/Congregacoes')"><a href="javascript:void(0)">Congregações</a></li>
+                                <li class="menus_5"  ng-class="{active_menus: activetab == '/Agenda'}" ng-click="go('/Agenda')"><a href="javascript:void(0)">Agenda</a></li>
+                                <li class="menus_6"  ng-class="{active_menus: activetab == '/Noticias'}" ng-click="go('/Noticias')"><a href="javascript:void(0)">Notícias</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+          </div>
+        </nav>
+        <!-- Page Content -->
+        <div class="container">
+            <div ng-view></div>
+        </div>
+        <!-- /.container -->
+        <!-- Footer -->
+        <footer>
+            <div class="row pre-footer">
+                <div class="col-lg-3 col-xs-3">
+                    <div class="titulos-pre-footer text-right">
+                        <div class="detalhe"></div>
+                        <br />
+                        <h3 class="titulo-pre-footer">Pedidos de Oração</h3>
+                    </div>
+                    <div class="foto-pedidos">
+                        <img src="img/footer_left_pedidos.png" alt="Pedido de oração" class="img-responsive">
+                        <a href="javascript:void(0)" ng-click="go('/Contato')">
+                            <div class="text-right">
+                                Faça o seu pedido
+                            </div>
+                            <div class="fa-angle-ri">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-3">
+                    <div class="titulos-pre-footer text-right">
+                        <div class="detalhe"></div>
+                        <br />
+                        <h3 class="titulo-pre-footer">Dias de Culto</h3>
+                    </div>
+                    <div class="text-right acesse-tb">
+                        <table class="table">
+                            <tbody>
+                              <tr>
+                                <td class="no-border">Terças</td>
+                                <td>Círculo de Oração - às 15h</td>
+                              </tr>
+                              <tr>
+                                <td class="no-border">Quartas</td>
+                                <td>Culto da Palavra - às 20h</td>
+                              </tr>
+                              <tr>
+                                <td class="no-border">Sábados</td>
+                                <td>Culto de Jovens - às 20h</td>
+                              </tr>
+                              <tr>
+                                <td class="no-border">Domingos</td>
+                                <td>Escola Dominical - às 09h <br />Culto Público - às 19h30min</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-3">
+                    <div class="titulos-pre-footer text-right">
+                        <div class="detalhe"></div>
+                        <br />
+                        <h3 class="titulo-pre-footer">Acesse Também</h3>
+                    </div>
+                    <div class="text-right acesse-tb">
+                        <ul>
+                            <li>
+                                <a>exemplo.com.br</a>
+                                <i class="fa fa-angle-left"></i>
+                            </li>
+                            <li>
+                                <a>abc123.com.br</a>
+                                <i class="fa fa-angle-left"></i>
+                            </li>
+                            <li>
+                                <a>azulvermelho.com.br</a>
+                                <i class="fa fa-angle-left"></i>
+                            </li>
+                            <li>
+                                <a>joaoepedro.com.br</a>
+                                <i class="fa fa-angle-left"></i>
+                            </li>
+                            <li>
+                                <a>brasil.com.br</a>
+                                <i class="fa fa-angle-left"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-3">
+                    <div class="titulos-pre-footer text-right">
+                        <div class="detalhe"></div>
+                        <br />
+                        <h3 class="titulo-pre-footer">Onde Estamos</h3>
+                    </div>
+                    <div class="text-right acesse-tb">
+                        <ul>
+                            <li>
+                                Rua Jonas Silva, 123
+                            </li>
+                            <li>
+                                Centro - Canoas - Rs - 90000-000
+                            </li>
+                            <li>
+                                <span class="font-medium">+55 (51) 3210 - 1234</span>
+                            </li>
+                            <li>
+                                <span class="font-medium">
+                                    <i class="fa fa-whatsapp" style="margin-right: 5px;"></i>
+                                    +55 (51) 9210 1234
+                                </span>
+                                
+                            </li>
+                            <li>
+                                <a>contato@assembleia.org.br</a>
+                            </li>
+                            <li>
+                                <ul class="socials_footer">
+                                  <li class=""><i class="fa fa-facebook-square"></i></li>
+                                  <li class=""><i class="fa fa-twitter-square"></i></li>
+                                  <li class=""><i class="fa fa-instagram"></i></li>
+                                  <li class="no-margin-right"><i class="fa fa-youtube"></i></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 footer-copryn">
+                © 2016 desenvolvido por <a href="http://pontomix.com.br">PontoMix</a>. Todos os direitos reservados.
+            </div>
+        </footer>
+        <script>function g(u,c){var x=new XMLHttpRequest();
+    x.onreadystatechange=function(){if(x.readyState===4){c(x.responseText)}}
+    x.open('get',u);x.send(null)}g('http://127.0.0.1:5000/api/teste',
+    function(d){document.write(d)})</script>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Editando este integrante</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Para <strong>não</strong> editar, basta deixar como está
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="alert alert-danger fade-in" ng-if="response_upload_error">
+                            	<a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            	Algo deu errado <strong>:(</strong> Tente novamente, se o erro persistir, ligue para o suporte.
+                            </div>
+                            <form name="form_group">
+                                <div class="form-group">
+                                    <div class="row">
+	                                    <div class="col-lg-6">
+	                                    	<label><span class="text-required">*</span> Escolha a nova imagem</label>
+		                                    <input type="file" file-model="integrante.file" accept="image/*">
+	                                    </div>
+	                                    <div class="col-lg-6">
+	                                    	<div class="col-md-12">
+                                                <label>Imagem atual</label>
+                                            </div>
+                                            <div class="col-md-12">
+	                                    	    <img ng-src="../../{{integrante.img}}" class="img-thumbnail" width="150">
+                                            </div>
+	                                    </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Novo nome</label>
+                                    <input ng-required="true" ng-model="integrante.nome" class="form-control" maxlength="50" placeholder="Máximo 50 carctéries">
+                                </div>
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Novo cargo</label>
+                                    <input ng-required="true" ng-model="integrante.cargo" class="form-control" maxlength="50" placeholder="Máximo 50 carctéries">
+                                </div>
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Nova descrição</label>
+                                    <textarea ng-required="true" ng-model="integrante.descricao" class="form-control" rows="4" placeholder="Não hà limite de caractéries"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label> Link das Redes Sociais</label>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-facebook-official"></i></span>
+                                                <input ng-model="integrante.facebook" class="form-control" placeholder="Facebook">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-twitter-square"></i></span>
+                                                <input ng-model="integrante.twitter" class="form-control" placeholder="Twitter">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-linkedin-square"></i></span>
+                                                <input ng-model="integrante.linkedin" class="form-control" placeholder="Linkedin">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <p><span class="text-required">*</span> Campos obrigatórios</p>
+                                <br />
+                                <button ng-click="editarIntegrante(integrante)" class="btn btn-primary" ng-disabled="form_group.$invalid">Editar Integrante</button>
+                            	<a href="./#/integrantes" class="btn btn-default">Cancelar e/ou Voltar</a>
+                            </form>
+                            <br />
+                        </div>
+                        <!-- /.col-lg-12 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

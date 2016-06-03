@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Projetos</h1>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Projetos está no meio, nas 3 colunas: Notícias, Projetos, Galeria de Vídeos.
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="well">
+                        <h4>Novo projeto?</h4>
+                        <p>Indicamos que tenha 3 projetos.</p>
+                        <a class="btn btn-primary btn-lg btn-block" href="./#/projetos/novoProjeto">Adicionar Novo Projeto</a>
+                    </div>
+                    <div class="dataTable_wrapper table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Imagem</th>
+                                    <th class="text-center">Título</th>
+                                    <th class="text-center">Texto</th>
+                                    <th class="text-center">Editar</th>
+                                    <th class="text-center">Excluir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="gradeC" ng-repeat="projeto in projetos">
+                                    <td class="text-center"><img ng-src="../../{{projeto.img}}" alt="{{projeto.texto_grande}}" class="img-thumbnail" width="100"></td>
+                                    <td>{{projeto.texto_grande}}</td>
+                                    <td>{{projeto.texto_medio}}</td>
+                                    <td class="text-center mouse-hover" ng-click="editarProjeto(projeto.id)"><i class="fa fa-pencil-square-o"></i></td>
+                                    <td class="text-center mouse-hover" ng-click="deletarProjeto(projeto.id)"><i class="fa fa-trash-o"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

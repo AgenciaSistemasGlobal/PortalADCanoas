@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Vamos criar destaques</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Cadastre e teste online
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form name="form_group">
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Escolha a imagem</label>
+                                    <input type="file" ng-required="true" file-model="destaque.file" accept="image/*">
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Título</label>
+                                    <textarea ng-required="true" ng-model="destaque.textoGrande" class="form-control" rows="3" maxlength="50" placeholder="Máximo 50 carctéries"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label><span class="text-required">*</span> Texto</label>
+                                    <textarea ng-required="true" ng-model="destaque.textoMedio" class="form-control" rows="4" placeholder="Não hà limite de caractéries"></textarea>
+                                </div>
+                                <br />
+                                <p><span class="text-required">*</span> Campos obrigatórios</p>
+                                <br />
+                                <button ng-click="adicionarDestaque(destaque)" class="btn btn-primary" ng-disabled="form_group.$invalid">Cadastrar Destaque</button>
+                            	<a href="./#/destaques" class="btn btn-default">Cancelar e/ou Voltar</a>
+                            </form>
+                            <br />
+                            <div class="alert alert-danger fade-in" ng-if="response_upload_error">
+                            	<a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                Algo deu errado <strong>:(</strong> Tente novamente, se o erro persistir, ligue para o suporte.
+                            </div>
+                        </div>
+                        <!-- /.col-lg-12 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
